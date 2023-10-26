@@ -1,4 +1,7 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
+import MainNav from "./components/MainNavigation"
+
+import mainCSS from "./styles/main.css"
+
 import {
   Links,
   LiveReload,
@@ -8,9 +11,6 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export const links = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-];
 
 export default function App() {
   return (
@@ -21,6 +21,9 @@ export default function App() {
         <Meta />
         <Links />
       </head>
+      <header>
+        <MainNav />
+      </header>
       <body>
         <Outlet />
         <ScrollRestoration />
@@ -30,3 +33,7 @@ export default function App() {
     </html>
   );
 }
+
+export const links = () => [
+  ...([{ rel: "stylesheet", href: mainCSS }]),
+];

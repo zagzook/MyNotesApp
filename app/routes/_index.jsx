@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import homeCSS from "../styles/home.css"
 
 export const meta = () => {
   return [{ title: "New Remix App" }];
@@ -15,3 +16,8 @@ export default function Index() {
   </main>
   );
 }
+
+export function links() {
+  return [{ rel: "stylesheet", href: homeCSS }]
+};
+
